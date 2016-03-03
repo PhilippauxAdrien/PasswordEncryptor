@@ -8,19 +8,28 @@ public class Encryption {
 	private String encodage = "";
 	private static MessageDigest md;
 
+	/**
+	 * Créé un type Encryption pour ensuite pouvoir encrypter le mdp
+	 * @param passwordToEncrypt - mot de passe à encrypter
+	 * @param encodage - le type d'encodage choisi
+	 */
 	public Encryption(String passwordToEncrypt, Encoding encodage) {
 		this.passwordToEncrypt = passwordToEncrypt;
 		this.encodage = encodage.getEncoding();
 		passwordEncrypted = toEncrypt();
 	}
 
+	/**
+	 * Encrypt le mot de passe avec l'encodage 
+	 * @return - le mot de passe encrypté avec l'encodage
+	 */
 	public String toEncrypt() {
 		String pwd = "";
 		byte[] bytes, fordigest;
 		StringBuffer buf;
 
 		try {
-			md = MessageDigest.getInstance("MD5");
+			md = MessageDigest.getInstance(encodage);
 			bytes = passwordToEncrypt.getBytes();
 			md.reset();
 			fordigest = md.digest(bytes);

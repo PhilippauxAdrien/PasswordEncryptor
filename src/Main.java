@@ -5,8 +5,9 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println("Helloworld");
+		Encryption encr = new Encryption("password", Encoding.MD5);
+		System.out.println(encr.getPasswordToEncrypt());
+		System.out.println(encr.getPasswordEncrypted());
 	}
 
 }

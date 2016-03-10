@@ -7,15 +7,16 @@ public class Encryption {
 	private String passwordEncrypted = "";
 	private String encodage = "";
 	private static MessageDigest md;
-
+	private int size ;
 	/**
 	 * Créé un type Encryption pour ensuite pouvoir encrypter le mdp
 	 * @param passwordToEncrypt - mot de passe à encrypter
 	 * @param encodage - le type d'encodage choisi
 	 */
-	public Encryption(String passwordToEncrypt, Encoding encodage) {
+	public Encryption(String passwordToEncrypt, Encoding encodage, int size) {
 		this.passwordToEncrypt = passwordToEncrypt;
 		this.encodage = encodage.getEncoding();
+		this.size = size/2 ;
 		passwordEncrypted = toEncrypt();
 	}
 
@@ -35,8 +36,12 @@ public class Encryption {
 			fordigest = md.digest(bytes);
 
 			buf = new StringBuffer();
-			for (int i = 0; i < fordigest.length; i++) {
-				buf.append(Integer.toHexString(0xff & fordigest[i]));
+			for (int i = 0; i < size; i++) {
+				if(i>= fordigest.length){
+					buf.append(Integer.toHexString(0xff & fordigest[i%fordigest.length]));
+				}
+				else
+					buf.append(Integer.toHexString(0xff & fordigest[i]));
 			}
 			pwd = buf.toString();
 

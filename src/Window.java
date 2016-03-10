@@ -32,7 +32,7 @@ public class Window extends JPanel{
 	    super.paintComponent(g);
 
 	    // Draw the background image.
-	    g.drawImage(backgroundImage, 0, 0, this);
+	  //  g.drawImage(backgroundImage, 0, 0, this);
 	  }
 	public static void main(String[] args) throws IOException {
 		new Window();

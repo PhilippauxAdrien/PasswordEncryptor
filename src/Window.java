@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -20,8 +21,8 @@ public class Window extends JPanel{
 		 f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		 f.setPreferredSize(new Dimension(450, 650));
 		 f.setResizable(false);
-		 
-		f.setContentPane(new JPanelImage(new ImageIcon("res/background.jpg").getImage()));		 
+
+		 f.setContentPane(new JPanelImage(new ImageIcon("res/background.jpg").getImage()));		 
 		 
 		 
 		 f.pack();
@@ -30,7 +31,6 @@ public class Window extends JPanel{
 	}
 	public void paintComponent(Graphics g) {
 	    super.paintComponent(g);
-
 	    // Draw the background image.
 	  //  g.drawImage(backgroundImage, 0, 0, this);
 	  }

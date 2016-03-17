@@ -108,7 +108,10 @@ public class JPanelImage extends JPanel {
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-	//	g.drawImage(img, 0, 0, null);
+	
+		g.drawImage(img, 48, 20, null);
 		g.drawRect(40, 170, 365, 400);
+	 
+
 	}
 }
